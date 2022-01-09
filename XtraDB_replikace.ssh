@@ -32,7 +32,7 @@ sed -i 's/wsrep_cluster_name=pxc-cluster/wsrep_cluster_name='$cluster'/g' /etc/m
 echo "Zadejte IP adresy vsech databazi co budete pridavat do clusteru ve formatu XXX.XXX.XXX.XXX,XXX.XXX.XXX.XXX"
 echo "Musi byt stejne na vsech databazich!"
 read ip
-sed -i 's|wsrep_cluster_address=gcomm://|wsrep_cluster_address=gcomm://'$ip|g' /etc/my.cnf
+sed -i 's|wsrep_cluster_address=gcomm://|wsrep_cluster_address=gcomm://'$ip'|g' /etc/my.cnf
 
 # Pojmenovani nasi databaze v clusteru
 echo "Jak chcete pojmenovat tuto konkretni databazi v ramci clusteru?"
