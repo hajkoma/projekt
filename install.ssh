@@ -1,8 +1,17 @@
 #!/bin/bash
 
-yum install https://repo.percona.com/yum/percona-release-latest.noarch.rpm
-yum update percona-release
-percona-release enable-only tools release
-yum install qpress
-percona-release enable-only pxc-80 release
-yum install percona-xtradb-cluster
+echo "Mate uz nainstalovany PerconaXtraDB Cluster? (y/n)"
+read ynebon
+
+if [$ynebon == n] 
+then
+  yum install https://repo.percona.com/yum/percona-release-latest.noarch.rpm
+  yum update percona-release
+  percona-release enable-only tools release
+  yum install qpress
+  percona-release enable-only pxc-80 release
+  yum install percona-xtradb-cluster
+else 
+  echo "Fajn"
+ fi
+ 
