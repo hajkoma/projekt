@@ -24,9 +24,9 @@ sed -i 's/server-id=1/server-id='$ids'/g' /etc/my.cnf
 
 # Pojmenovani Clusteru
 echo "Jak chcete pojmenovat svuj cluster?"
-echo "Musi byt na vsech serverech stejne!"\
+echo "Musi byt na vsech serverech stejne!"
 read cluster
-sed -i s/wsrep_cluster_name=pxc-cluster/wsrep_cluster_name='$cluster'/g' /etc/my.cnf
+sed -i 's/wsrep_cluster_name=pxc-cluster/wsrep_cluster_name='$cluster'/g' /etc/my.cnf
 
 # Definovani IP adres vsech serveru v clusteru
 echo "Zadejte IP adresy vsech databazi co budete pridavat do clusteru ve formatu XXX.XXX.XXX.XXX,XXX.XXX.XXX.XXX"
