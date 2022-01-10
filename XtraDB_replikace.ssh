@@ -47,7 +47,7 @@ read ipna
 sed -i 's/#wsrep_node_address=192.168.70.63/wsrep_node_address='$ipna'/g' /etc/my.cnf
 
 # Vypnuti sifrovani replikace
-echo "pxc-encrypt-cluster=OFF" >> /etc/my.cnf
+echo "pxc-encrypt-cluster-traffic=OFF" >> /etc/my.cnf
 
 # Zapinani databaze podle toho jestli je prvni, kterou zapiname nebo ne
 echo "Je toto prvni databaze, kterou do clusteru pridavate? (y/n)"
