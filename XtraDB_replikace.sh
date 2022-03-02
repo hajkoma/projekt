@@ -9,12 +9,12 @@ else
   echo "Mate uz nainstalovany PerconaXtraDB Cluster? (y/n)"
   read ynebon
   if [ "$ynebon" == "n" ]; then
-    yum install https://repo.percona.com/yum/percona-release-latest.noarch.rpm
-    yum update percona-release
+    yum -y install https://repo.percona.com/yum/percona-release-latest.noarch.rpm
+    yum -y update percona-release
     percona-release enable-only tools release
-    yum install qpress
+    yum -y install qpress
     percona-release enable-only pxc-80 release
-    yum install percona-xtradb-cluster
+    yum -y install percona-xtradb-cluster
   elif [ "$ynebon" == "y" ]; then
     echo "ok"
   else
