@@ -5,7 +5,7 @@ if [[ $EUID -ne 0 ]]; then
   echo "Na spusteni tohoto skriptu je potreba mit root prava!"
   exit 1
 else
-# instalace databaze
+# instalace databaze a nakonfigurovani fw
   echo "Mate uz nainstalovany PerconaXtraDB Cluster? (y/n)"
   read ynebon
   if [ "$ynebon" == "n" ]; then
@@ -15,6 +15,11 @@ else
     yum -y install qpress
     percona-release enable-only pxc-80 release
     yum -y install percona-xtradb-cluster
+    systemctl enable firewalld
+    iptables -A INPUT -p tcp --dport 4567 -j ACCEPT
+    iptables -A INPUT -p tcp --dport 3306 -j ACCEPT
+    iptables -A INPUT -p tcp --sport 4567 -j ACCEPT
+    iptables -A INPUT -p tcp --sport 3306 -j ACCEPT
   elif [ "$ynebon" == "y" ]; then
     echo "ok"
   else
