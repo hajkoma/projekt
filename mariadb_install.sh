@@ -11,5 +11,5 @@ else
   systemctl start mariadb
   mariadb-server-installation
   systemctl enable firewalld
-  
+  iptables -A INPUT -p tcp --dport 3306 -j ACCEPT
 fi
