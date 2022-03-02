@@ -8,14 +8,14 @@ else
 # instalace databaze
   echo "Mate uz nainstalovany PerconaXtraDB Cluster? (y/n)"
   read ynebon
-  if [ $ynebon == "n" ]; then
+  if [ "$ynebon" == "n" ]; then
     yum install https://repo.percona.com/yum/percona-release-latest.noarch.rpm
     yum update percona-release
     percona-release enable-only tools release
     yum install qpress
     percona-release enable-only pxc-80 release
     yum install percona-xtradb-cluster
-  elif [ $ynebon == "y" ]; then
+  elif [ "$ynebon" == "y" ]; then
     echo "ok"
   else
     echo "bad input"
@@ -57,9 +57,9 @@ else
 # Zapinani databaze podle toho jestli je prvni, kterou zapiname nebo ne
   echo "Je toto prvni databaze, kterou do clusteru pridavate? (y/n)"
   read ytakn
-  if [ $ytakn == "n" ]; then
+  if [ "$ytakn" == "n" ]; then
     systemctl start mysqld
-  elif [ $ytakn == "y" ]; then
+  elif [ "$ytakn" == "y" ]; then
     systemctl start mysql@bootstrap.service
   else 
     echo "bad input"
