@@ -10,5 +10,6 @@ else
   yum install mariadb-server
   systemctl start mariadb
   mariadb-server-installation
-  systemctl status mariadb
+  systemctl enable firewalld
+  
 fi
