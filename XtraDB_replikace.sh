@@ -15,12 +15,6 @@ else
     yum -y install qpress
     percona-release enable-only pxc-80 release
     yum -y install percona-xtradb-cluster
-    systemctl enable firewalld
-    iptables -A INPUT -p tcp --dport 4567 -j ACCEPT
-    iptables -A INPUT -p udp --dport 4567 -j ACCEPT
-    iptables -A INPUT -p tcp --dport 3306 -j ACCEPT
-    iptables -A INPUT -p tcp --dport 4444 -j ACCEPT
-    iptables -A INPUT -p tcp --dport 4568 -j ACCEPT
   elif [ "$ynebon" == "y" ]; then
     echo "ok"
   else
